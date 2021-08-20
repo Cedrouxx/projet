@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Rating;
 
-class ratingTableSeeder extends Seeder
+class RatingTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +15,8 @@ class ratingTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Rating::factory(100)->create();
+        User::factory(10)
+            ->has(Rating::factory()->count(10))
+            ->create();
     }
 }

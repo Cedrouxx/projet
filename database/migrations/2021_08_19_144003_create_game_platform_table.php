@@ -18,7 +18,7 @@ class CreateGamePlatformTable extends Migration
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->on('games')->references('id');
             $table->unsignedBigInteger('platform_id');
-            $table->foreign('platform_id')->on('platform')->references('id');
+            $table->foreign('platform_id')->on('platforms')->references('id');
             $table->timestamps();
         });
     }

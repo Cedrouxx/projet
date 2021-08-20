@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        GameTableSeeder::class;
+        $this->call([
+            UserTableSeeder::class,
+            StudioTableSeeder::class,
+            GameTableSeeder::class,
+            RatingTableSeeder::class,
+        ]);
     }
 }

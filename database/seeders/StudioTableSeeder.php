@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Studio;
 
 class StudioTableSeeder extends Seeder
 {
@@ -13,6 +14,9 @@ class StudioTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Studio::factory(100)->create();
+        Studio::create([
+            'name' => 'Moon',
+            'logo' => '...'
+        ]);
     }
 }

@@ -15,12 +15,10 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $tagle->string('title');
+            $table->string('title');
             $table->integer('mark');
             $table->string('image');
             $table->text('description');
-            $table->unsignedBigInteger('studio_id');
-            $table->foreign('studio_id')->on('studio')->references('id');
             $table->float('price');
             $table->date('release_date');
             $table->timestamps();

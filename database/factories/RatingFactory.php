@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Rating;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class RatingFactory extends Factory
 {
@@ -12,7 +13,7 @@ class RatingFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Rating::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +23,11 @@ class RatingFactory extends Factory
     public function definition()
     {
         return [
-            'mark' => Str::random(9),
-            //ici pas fini
+            'mark' => rand(0,9),
+            'content' => $this->faker->paragraphs(5, true),
+            // 'user_id' => 1,
+            'game_id' => 1,
+            'user_id' => 1
         ];
     }
 }
