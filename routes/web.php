@@ -43,4 +43,5 @@ Route::get('/studio/add', [CreatorController::class, 'studio'])->name('creator.s
 Route::post('/studio/add', [CreatorController::class, 'studioPost'])->name('creator.studio.post');
 Route::get('/platform/add', [CreatorController::class, 'platform'])->name('creator.platform');
 Route::post('/platform/add', [CreatorController::class, 'platformPost'])->name('creator.platform.post');
-
+Route::get('/category/add', [CreatorController::class, 'category'])->name('creator.category');
+Route::post('/category/add', [CreatorController::class, 'categoryPost'])->name('creator.category.post');

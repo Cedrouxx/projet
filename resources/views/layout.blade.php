@@ -45,6 +45,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('creator.platform') }}">Ajouter une platforme</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('creator.category') }}">Ajouter une categorie</a>
+                            </li>
                         @endif
                     </ul>
                 </div>

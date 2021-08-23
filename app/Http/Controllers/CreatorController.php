@@ -9,6 +9,7 @@ use App\Models\Studio;
 use App\Models\Game;
 use App\Models\User;
 use App\Models\Platform;
+use App\Models\Category;
 
 class CreatorController extends Controller
 {
@@ -108,6 +109,35 @@ class CreatorController extends Controller
         $platform->name = $request->input('name');
         $platform->logo = $request->input('logo');
         $platform->save();
+        
+        return redirect()->route('homepage');
+        
+    }
+    
+    public function category(){
+        
+        if (empty(Auth::user()['is_admin']))
+            return redirect()->intended(route('homepage'));
+        
+        $studios = Studio::get();
+        
+        return view('creator.category');
+        
+    }
+    
+    public function categoryPost(Request $request){
+        
+        if (empty(Auth::user()['is_admin']))
+            // return redirect()->intended(route('homepage'));
+            dd("ok");
+        
+        $request->validate([
+            'name' => 'required|unique:platforms',
+        ]);
+        
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->save();
         
         return redirect()->route('homepage');
         
