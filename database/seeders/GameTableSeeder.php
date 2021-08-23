@@ -16,33 +16,26 @@ class GameTableSeeder extends Seeder
     public function run()
     {
         DB::table('games')->insert([
-        [
-            'title' => 'Ori and the blind forest',
-            'mark' => 9,
-<<<<<<< HEAD
-            'image' => 'https://store-images.s-microsoft.com/image/apps.48128.64380020109914519.db17d3d9-50d5-4f2b-b4a4-ac5d6eb8b882.92165fa8-40cf-4dec-ae2f-264804299afb',
-=======
-            'image' => 'https://global-img.gamergen.com/ori-and-the-blind-forest_0903D4000000798672.jpg',
->>>>>>> 2d8aece88ecdcbda73082d0244744ebe391dc650
-            'description' => 'Jeu trop bien',
-            'price' => 19.90,
-            'release_date' => '2015-03-11',
-            'studio_id' => 1
-<<<<<<< HEAD
-        ],
-        [
-            'title' => 'sonic',
-            'mark' => 9,
-            'image' => 'https://play-lh.googleusercontent.com/4F-WwVKAs56rT6DGSfu1-9sW4MqSjenlIUqWS1K_8iB25ktsHKXXScAwJonvwo7DuMA',
-            'description' => 'Jeu trop bien',
-            'price' => 19.90,
-            'release_date' => '2015-03-11',
-            'studio_id' => 1
-        ]
+            
+            [
+                'title' => 'Ori and the blind forest',
+                'mark' => 9,
+                'image' => 'https://store-images.s-microsoft.com/image/apps.48128.64380020109914519.db17d3d9-50d5-4f2b-b4a4-ac5d6eb8b882.92165fa8-40cf-4dec-ae2f-264804299afb',
+                'description' => 'Jeu trop bien',
+                'price' => 19.90,
+                'release_date' => '2015-03-11',
+                'studio_id' => 1
+            ],
+            [
+                'title' => 'sonic',
+                'mark' => 9,
+                'image' => 'https://play-lh.googleusercontent.com/4F-WwVKAs56rT6DGSfu1-9sW4MqSjenlIUqWS1K_8iB25ktsHKXXScAwJonvwo7DuMA',
+                'description' => 'Jeu trop bien',
+                'price' => 19.90,
+                'release_date' => '2015-03-11',
+                'studio_id' => 1
+            ]
       
-    ]);
-        
-=======
         ]);
         
         Game::create([
@@ -94,6 +87,5 @@ class GameTableSeeder extends Seeder
             'release_date' => '2015-09-15', 
             'studio_id' => 1
         ]);
->>>>>>> 2d8aece88ecdcbda73082d0244744ebe391dc650
     }
 }
