@@ -11,6 +11,9 @@ use App\Models\User;
 class AuthController extends Controller
 {
     public function register(){
+        if (Auth::check())
+            return redirect()->intended(route('homepage'));
+        
         return view('auth.register');
     }
     
@@ -34,6 +37,9 @@ class AuthController extends Controller
     }
     
     public function login(){
+        if (Auth::check())
+            return redirect()->intended(route('homepage'));
+        
         return view('auth.login');
     }
     
