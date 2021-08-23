@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Studio;
 use App\Models\Game;
+use App\Models\User;
 
 class CreatorController extends Controller
 {
     public function game(){
+        
+        if (!isset(Auth::user()['is_admin']))
+            return redirect()->intended(route('homepage'));
         
         $studios = Studio::get();
         
@@ -18,6 +23,9 @@ class CreatorController extends Controller
     }
     
     public function gamePost(Request $request){
+        
+        if (!isset(Auth::user()['is_admin']))
+            return redirect()->intended(route('homepage'));
         
         $request->validate([
             'title' => 'required|unique:games',
@@ -40,6 +48,36 @@ class CreatorController extends Controller
         $game->save();
         
         return redirect()->route('game.list');
+        
+    }
+    
+    public function studio(){
+        
+        if (!isset(Auth::user()['is_admin']))
+            return redirect()->intended(route('homepage'));
+        
+        $studios = Studio::get();
+        
+        return view('creator.studio');
+        
+    }
+    
+    public function studioPost(Request $request){
+        
+        if (!isset(Auth::user()['is_admin']))
+            return redirect()->intended(route('homepage'));
+        
+        $request->validate([
+            'name' => 'required|unique:studios',
+            'logo' => 'required',
+        ]);
+        
+        $studio = new Studio();
+        $studio->name = $request->input('name');
+        $studio->logo = $request->input('logo');
+        $studio->save();
+        
+        return redirect()->route('homepage');
         
     }
 }

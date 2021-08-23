@@ -37,7 +37,7 @@
             <select name="studio_id" id="studio_id">
                 <option value="">--Please choose an option--</option>
                 @foreach( $studios as $studio)
-                    <option value="{{$studio->id}}">{{$studio->name}}</option>
+                    <option value="{{ $studio->id }}">{{ $studio->name }}</option>
                 @endforeach
             </select>
         </div>

@@ -36,3 +36,5 @@ Route::get('/game-list', [GameController::class, 'list'])->name('game.list');
 //creation
 Route::get('/game/add', [CreatorController::class, 'game'])->name('creator.game');
 Route::post('/game/add', [CreatorController::class, 'gamePost'])->name('creator.game.post');
+Route::get('/studio/add', [CreatorController::class, 'studio'])->name('creator.studio');
+Route::post('/studio/add', [CreatorController::class, 'studioPost'])->name('creator.studio.post');
