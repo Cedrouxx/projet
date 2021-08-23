@@ -132,7 +132,7 @@ class CreatorController extends Controller
             dd("ok");
         
         $request->validate([
-            'name' => 'required|unique:platforms',
+            'name' => 'required|unique:categories',
         ]);
         
         $category = new Category();
