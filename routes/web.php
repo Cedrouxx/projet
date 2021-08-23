@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 //Controller
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,6 @@ Route::post('/register', [AuthController::class, 'registerPost'])->name('auth.re
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login.form');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('auth.login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+//game-list
+Route::get('/game-list', [GameController::class, 'list'])->name('game.list');
