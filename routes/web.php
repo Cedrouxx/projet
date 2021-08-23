@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 //Controller
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\CreatorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 //game-list
 Route::get('/game-list', [GameController::class, 'list'])->name('game.list');
+
+//creation
+Route::get('/game/add', [CreatorController::class, 'game'])->name('creator.game');
+Route::post('/game/add', [CreatorController::class, 'gamePost'])->name('creator.game.post');
