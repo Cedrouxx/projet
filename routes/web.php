@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 
+//Controller
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\CreatorController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +21,24 @@ use App\Http\Controllers\HomeController;
 */
 
 
+
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
+
+
+// Auth
+Route::get('/register', [AuthController::class, 'register'])->name('auth.register.form');
+Route::post('/register', [AuthController::class, 'registerPost'])->name('auth.register.post');
+Route::get('/login', [AuthController::class, 'login'])->name('auth.login.form');
+Route::post('/login', [AuthController::class, 'loginPost'])->name('auth.login.post');
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+//game-list
+Route::get('/game-list', [GameController::class, 'list'])->name('game.list');
+
+//creation
+Route::get('/game/add', [CreatorController::class, 'game'])->name('creator.game');
+Route::post('/game/add', [CreatorController::class, 'gamePost'])->name('creator.game.post');
+Route::get('/studio/add', [CreatorController::class, 'studio'])->name('creator.studio');
+Route::post('/studio/add', [CreatorController::class, 'studioPost'])->name('creator.studio.post');
+
