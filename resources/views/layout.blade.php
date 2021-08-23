@@ -35,7 +35,7 @@
                             <a class="nav-link" href="{{ route('auth.login.form') }}">Connexion</a>
                         </li>
                         @endauth
-                        @if(isset(Auth::user()['is_admin']))
+                        @if(!empty(Auth::user()['is_admin']))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('creator.game') }}">Ajouter un jeu</a>
                             </li>

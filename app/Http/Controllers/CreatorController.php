@@ -13,7 +13,7 @@ class CreatorController extends Controller
 {
     public function game(){
         
-        if (!isset(Auth::user()['is_admin']))
+        if (empty(Auth::user()['is_admin']))
             return redirect()->intended(route('homepage'));
         
         $studios = Studio::get();
@@ -24,7 +24,7 @@ class CreatorController extends Controller
     
     public function gamePost(Request $request){
         
-        if (!isset(Auth::user()['is_admin']))
+        if (empty(Auth::user()['is_admin']))
             return redirect()->intended(route('homepage'));
         
         $request->validate([
@@ -53,7 +53,7 @@ class CreatorController extends Controller
     
     public function studio(){
         
-        if (!isset(Auth::user()['is_admin']))
+        if (empty(Auth::user()['is_admin']))
             return redirect()->intended(route('homepage'));
         
         $studios = Studio::get();
@@ -64,7 +64,7 @@ class CreatorController extends Controller
     
     public function studioPost(Request $request){
         
-        if (!isset(Auth::user()['is_admin']))
+        if (empty(Auth::user()['is_admin']))
             return redirect()->intended(route('homepage'));
         
         $request->validate([
