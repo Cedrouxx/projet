@@ -3,7 +3,7 @@
 @section('content')   
 <h1>Register</h1>
 
-<form action="{{ route("Auth.register.post") }}" method="post">
+<form action="{{ route("auth.register.post") }}" method="post">
     @csrf
     @if($errors->any())
         <ul>
