@@ -42,6 +42,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('creator.studio') }}">Ajouter un studio</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('creator.platform') }}">Ajouter une platforme</a>
+                            </li>
                         @endif
                     </ul>
                 </div>

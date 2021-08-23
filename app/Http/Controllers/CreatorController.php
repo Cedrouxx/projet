@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Studio;
 use App\Models\Game;
 use App\Models\User;
+use App\Models\Platform;
 
 class CreatorController extends Controller
 {
@@ -76,6 +77,37 @@ class CreatorController extends Controller
         $studio->name = $request->input('name');
         $studio->logo = $request->input('logo');
         $studio->save();
+        
+        return redirect()->route('homepage');
+        
+    }
+    
+    public function platform(){
+        
+        if (empty(Auth::user()['is_admin']))
+            return redirect()->intended(route('homepage'));
+        
+        $studios = Studio::get();
+        
+        return view('creator.platform');
+        
+    }
+    
+    public function platformPost(Request $request){
+        
+        if (empty(Auth::user()['is_admin']))
+            // return redirect()->intended(route('homepage'));
+            dd("ok");
+        
+        $request->validate([
+            'name' => 'required|unique:platforms',
+            'logo' => 'required',
+        ]);
+        
+        $platform = new Platform();
+        $platform->name = $request->input('name');
+        $platform->logo = $request->input('logo');
+        $platform->save();
         
         return redirect()->route('homepage');
         
