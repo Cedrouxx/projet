@@ -42,11 +42,17 @@
             </select>
         </div>
         <div>
+            <p>Platforme(s) : </p>
+            @foreach($platforms as $platform)
+                <input type="checkbox" id="{{ $platform->name }}" name="platform[]" value="{{ $platform->id }}">
+                <label for="{{ $platform->name }}">{{ $platform->name }}</label>
+            @endforeach
+        </div>
+        <div>
             <label for="description">Description</label>
             <textarea id="description" name="description"></textarea>
         </div>
         <input type="submit" name="connexion">
     </form>
-    
     
 @endsection

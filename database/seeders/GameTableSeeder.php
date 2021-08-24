@@ -46,7 +46,7 @@ class GameTableSeeder extends Seeder
             'price' => 29.99,
             'release_date' => '2020-03-11',
             'studio_id' => 1
-        ]);
+        ])->platform()->sync([1]);
         
         Game::create([
             'title' => 'Ratchet & clank: a crack in time',

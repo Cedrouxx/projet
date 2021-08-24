@@ -19,8 +19,12 @@ class CreatorController extends Controller
             return redirect()->intended(route('homepage'));
         
         $studios = Studio::get();
+        $platforms = Platform::get();
         
-        return view('creator.game', [ 'studios' => $studios ]);
+        return view('creator.game', [ 
+            'studios' => $studios ,
+            'platforms' => $platforms
+        ]);
         
     }
     
@@ -36,8 +40,10 @@ class CreatorController extends Controller
             'price' => 'required|numeric',
             'release_date' => 'required|date',
             'description' => 'required',
-            'studio_id' => 'required|exists:studios,id'
+            'studio_id' => 'required|exists:studios,id',
+            'platform' => 'required'
         ]);
+        
         
         $game = new Game();
         $game->title = $request->input('title');
@@ -48,6 +54,7 @@ class CreatorController extends Controller
         $game->release_date = $request->input('release_date');
         $game->studio_id = $request->input('studio_id');
         $game->save();
+        $game->platform()->attach($request->input('platform'));
         
         return redirect()->route('game.list');
         

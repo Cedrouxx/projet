@@ -15,8 +15,8 @@ class StudioTableSeeder extends Seeder
     public function run()
     {
         Studio::create([
-            'name' => 'Moon',
-            'logo' => '...'
+            'name' => 'Moon Studio',
+            'logo' => 'https://i.pinimg.com/736x/4d/34/01/4d3401acdbb0d0edb3f9670cf5e5eff5--photo-studio-logo-design-studio-logo.jpg'
         ]);
     }
 }

@@ -22,7 +22,7 @@ class GameController extends Controller
     
     public function info(int $id){
         
-        $game = Game::where('id', $id)->first();
+        $game = Game::with('studio', 'platform')->where('id', $id)->first();
         $ratings = Rating::with('user')->where('game_id', $id)->orderBy('created_at', 'DESC')->get();
         
         return view('game.info', [ 

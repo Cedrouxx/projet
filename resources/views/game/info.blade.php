@@ -7,7 +7,15 @@
         <article>
             <h1>{{ $game->title }}</h1>
             <img src="{{ $game->image }}">
+            <p>Créer par le studio <strong>{{ $game->studio->name }}</strong></p>
             <p>Sortie le: {{ $game->release_date }}, nous avons mis le note de {{ $game->mark }} / 10</p>
+            <p>Platformes :</p>
+            <ul>
+                @foreach($game->platform as $platform)
+                    <li>{{ $platform->name }}</li>
+                @endforeach
+            </ul>
+            
         </article>
         <article>
             <h2>Description</h2>
