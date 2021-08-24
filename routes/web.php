@@ -33,8 +33,10 @@ Route::get('/login', [AuthController::class, 'login'])->name('auth.login.form');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('auth.login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-//game-list
+//game
 Route::get('/game-list', [GameController::class, 'list'])->name('game.list');
+Route::get('/game/{id}', [GameController::class, 'info'])->name('game.info');
+Route::post('/game/{id}', [GameController::class, 'infoPost'])->name('game.info.post');
 
 //creation
 Route::get('/game/add', [CreatorController::class, 'game'])->name('creator.game');
